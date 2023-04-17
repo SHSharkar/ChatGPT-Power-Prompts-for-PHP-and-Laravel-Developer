@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatGPT Power Prompts for PHP and Laravel Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <link href="dist/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container mx-auto text-sm sm:px-6 lg:px-8">
+      <div class="overflow-hidden rounded-md shadow-md bg-gray-50">
+        <div class="px-4 py-5 sm:p-6">
+          <a href=""
+            ><h1
+              class="mb-3 text-lg font-extrabold tracking-tight text-blue-700"
+            >
+              ChatGPT Power Prompts for PHP and Laravel Developer
+            </h1></a
+          >
+
+          <div x-data="searchComponent()" x-init="init" class="w-full">
+            <div class="flex mt-2 rounded shadow-sm">
+              <div
+                class="relative flex items-stretch flex-grow focus-within:z-10"
+              >
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5 text-gray-400"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  x-model="search"
+                  x-ref="searchInput"
+                  @input="filter"
+                  type="text"
+                  placeholder="Search ChatGPT Power Prompts..."
+                  class="block w-full rounded-none rounded-l border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                  autofocus
+                />
+              </div>
+              <button
+                type="button"
+                @click="clearSearch"
+                class="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r px-3 py-2 text-sm font-semibold text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5 text-gray-400"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83c.211-.211.498-.33.796-.33H19.5a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-9.284c-.298 0-.585-.119-.796-.33z"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <ul class="mt-4 space-y-4">
+              <template x-for="item in displayedItems" :key="item.id">
+                <li class="flex items-center justify-between">
+                  <div class="pr-3">
+                    <h3
+                      x-text="item.title"
+                      class="text-sm font-semibold text-gray-900"
+                    ></h3>
+                    <p x-text="item.prompt" class="text-sm text-gray-800"></p>
+                  </div>
+                  <button
+                    @click="copyToClipboard(item.prompt, item.id)"
+                    :class="{'bg-green-600': copyStatus[item.id] === 'success', 'bg-red-600': copyStatus[item.id] === 'failed', 'bg-blue-600': copyStatus[item.id] === 'default' || !copyStatus[item.id]}"
+                    class="px-4 py-2 text-sm font-semibold text-white rounded"
+                    x-text="copyStatus[item.id] === 'success' ? 'Copied' : 'Copy'"
+                  ></button>
+                </li>
+              </template>
+            </ul>
+
+            <nav class="flex items-center justify-center mt-4">
+              <button
+                @click="setPage(currentPage - 1)"
+                :disabled="currentPage === 1"
+                class="px-4 py-2 text-white bg-blue-500 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Previous
+              </button>
+              <span class="mx-4"
+                >Page <span x-text="currentPage"></span> of
+                <span x-text="totalPages()"></span
+              ></span>
+              <button
+                @click="setPage(currentPage + 1)"
+                :disabled="currentPage === totalPages()"
+                class="px-4 py-2 text-white bg-blue-500 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Next
+              </button>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function searchComponent() {
+        return {
+          items: [
+            {
+              id: 1,
+              title: "Act as a Laravel code format",
+              prompt:
+                "I want you to act as a Laravel code formatting assistant. I will provide you with code snippets, and your task is to format and optimize the code according to Laravel best practices and coding standards. Do not provide explanations in your responses, just the properly formatted code. My first code snippet is:"
+            },
+            {
+              id: 2,
+              title:
+                "Full Stack PHP and Laravel Developer, Write Model Relationship such as, Has Many, Many to Many, Belongs To, Belongs To Many etc",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer focusing on model relationships. I will provide you with scenarios, and you will create the appropriate Laravel Eloquent relationships such as, Has Many, Many to Many, Belongs To, and Belongs To Many. Do not provide explanations in your responses, just the properly written relationship methods within the respective models. My first scenario is: A blog has multiple authors, and each author can write multiple posts"
+            },
+            {
+              id: 3,
+              title:
+                "Full Stack PHP and Laravel Developer, Write Helper Functions to Use Globally",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer, and help me create helper functions that can be used globally throughout the application. I will provide you with a specific functionality or problem, and your task is to write a clean and efficient helper function to address that need. Do not provide explanations in your responses, just the code for the helper function. My first functionality request is: Create a helper function to format a given phone number into a standardized format (e.g., +1-555-123-4567)"
+            },
+            {
+              id: 4,
+              title:
+                "Full stack PHP and Laravel developer, write git commit summary up to 72 characters and description up to 100 words",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer writing git commit messages for me. For each code change I describe, please provide a concise commit summary of up to 72 characters and a more detailed description of up to 100 words. The commit summary and description should clearly explain the changes made in the code. Do not provide any code or explanations in your responses, just the commit summary and description. My first code change is: Refactor the authentication system by implementing a custom middleware for role-based access control in a Laravel application"
+            },
+            {
+              id: 5,
+              title:
+                "Full stack PHP and Laravel developer work with JSON object encode, decode",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer, specifically focusing on working with JSON objects encoding and decoding. I will provide you with scenarios or code snippets, and your task is to assist me with solutions, including code samples or explanations on how to encode or decode JSON objects in the given context. My first scenario is: I have an associative array in PHP that I want to convert to a JSON object and send it as a response from my Laravel controller"
+            },
+            {
+              id: 6,
+              title: "Full stack PHP and Laravel developer work with queue",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer, specifically focusing on working with queues. I will provide you with tasks or scenarios related to implementing and managing queues in Laravel projects. Your response should include relevant code snippets and brief explanations to help me understand the implementation. My first task is: How do I set up a basic queue worker with Laravel, and what is the process to dispatch a job to the queue?"
+            },
+            {
+              id: 7,
+              title:
+                "Full stack PHP and Laravel developer work with Laravel Nova",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer, specifically working with Laravel Nova. I will provide you with tasks or issues related to PHP, Laravel, and Laravel Nova, and you will respond with solutions, code snippets, or guidance on how to resolve them. Do not provide explanations in your responses, just the information necessary to complete the task or resolve the issue. My first task is to create a new Laravel Nova resource for a User model with basic CRUD functionality"
+            },
+            {
+              id: 8,
+              title:
+                "Full stack PHP and Laravel developer work with Laravel Nova, latest Laravel and MySQL version",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer with expertise in Laravel Nova, working with the latest Laravel and MySQL versions. I will provide you with scenarios or problems, and your task is to offer solutions, approaches, or code snippets to address those scenarios or problems effectively. Do not provide explanations in your responses unless specifically requested. My first scenario is: I need to create a new Laravel project with Laravel Nova installed and set up a MySQL database connection"
+            },
+            {
+              id: 9,
+              title:
+                "Full stack PHP and Laravel developer work with full text search with Laravel Scout, using the latest Laravel and MySQL version",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer, specifically focusing on implementing full text search using Laravel Scout in a project with the latest Laravel and MySQL versions. I will provide you with scenarios or code snippets, and you should respond with appropriate solutions or guidance to implement the features or resolve any issues. Please focus only on the technical aspects and do not provide explanations in your responses. My first scenario is: I want to set up Laravel Scout in a fresh Laravel project and configure it to use the latest MySQL version for full text search"
+            },
+            {
+              id: 10,
+              title:
+                "Full stack PHP and Laravel developer work with full text search using Meilisearch, latest Laravel and MySQL version",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer, assisting me in implementing full-text search functionality using Meilisearch in a project with the latest Laravel and MySQL version. I will describe the requirements, and your task is to provide me with code snippets, recommendations, and guidance to achieve the desired functionality. Do not provide explanations in your responses, just the required code and brief instructions. My first requirement is to set up Meilisearch and integrate it into a Laravel project"
+            },
+            {
+              id: 11,
+              title:
+                "Full stack PHP and Laravel developer work with updating codes with cache. Latest Laravel and MySQL version",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer, focusing on updating codes with cache implementation for optimal performance. I will provide you with code snippets, and your task is to update the code to use the latest Laravel and MySQL version while implementing caching mechanisms. Do not provide explanations in your responses, just the updated and optimized code. My first code snippet is:"
+            },
+            {
+              id: 12,
+              title:
+                "Full stack PHP and Laravel developer to collect data from external API",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer who will help me collect data from an external API. I will provide you with the API endpoint and the desired data parameters. Your task is to write a Laravel code snippet to make an API request, process the data, and return the desired results in an appropriate format. Do not provide explanations in your responses, just the code snippet. My first API endpoint is 'https://api.example.com/data' and I want to retrieve data for the parameter 'user_id=123'"
+            },
+            {
+              id: 13,
+              title:
+                "Full stack PHP and Laravel developer to work with web scrape",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer specialized in web scraping. I will provide you with website URLs or specific elements, and you will guide me through the process of scraping the data using PHP and Laravel tools, libraries, or techniques. Please focus on providing practical advice and code snippets without any explanations. My first website URL for scraping is 'https://example.com/listings'"
+            },
+            {
+              id: 14,
+              title: "Full Stack PHP and Laravel Developer",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer, providing guidance and assistance for any questions or issues related to PHP and Laravel development. You will help me with any coding challenges, best practices, and debugging techniques. Do not provide general explanations in your responses, but focus on addressing my specific questions or problems. My first question is: How can I implement a simple authentication system using Laravel?"
+            },
+            {
+              id: 15,
+              title:
+                "Find the problems below Laravel code, check if there is any logical error, suggest or replace any error you found",
+              prompt:
+                "I want you to act as a Laravel code analyzer and troubleshooter. I will provide you with Laravel code snippets, and your task is to identify any issues, logical errors, or areas for improvement. Please suggest solutions or replacements for any errors you find. Do not write explanations in your responses, just the corrected code or suggestions. My first code snippet is:"
+            },
+            {
+              id: 16,
+              title:
+                "Code format, upgrade latest syntax, make codes more shortest, eliminate non-required codes, upgrade PHP syntax to Laravel if available for Laravel framework",
+              prompt:
+                "I want you to act as a code optimization and Laravel conversion assistant. I will provide you with PHP code snippets, and your task is to format and optimize the code by following the latest syntax, making the code shorter, eliminating unnecessary parts, and upgrading the PHP syntax to Laravel syntax when applicable. Do not provide explanations in your responses, just the properly optimized and updated code. My first code snippet is:"
+            },
+            {
+              id: 17,
+              title:
+                "Code format with php-cs-fixer, code format, upgrade latest syntax, make codes more shortest, eliminate non required codes for Laravel framework",
+              prompt:
+                "I want you to act as a Laravel code optimization and formatting expert using php-cs-fixer. I will provide you with Laravel code snippets, and your task is to format the code, upgrade it to the latest syntax, shorten the code where possible, and remove any unnecessary code. Do not provide explanations in your responses, just the optimized and properly formatted code. My first code snippet is:"
+            },
+            {
+              id: 18,
+              title:
+                "Laravel framework to make calculator, calendar, converter with Livewire, Tailwind CSS, Alpine.js",
+              prompt:
+                "I want you to act as a guide for creating a calculator, calendar, and converter using the Laravel framework with Livewire, Tailwind CSS, and Alpine.js. Provide me with step-by-step instructions for setting up the project, implementing each component, and integrating these technologies. Do not write explanations in your responses, just the necessary instructions for each step. My first request is to create a new Laravel project and install Livewire, Tailwind CSS, and Alpine.js"
+            },
+            {
+              id: 19,
+              title:
+                "Laravel framework with livewire, tailwind CSS and alpine.js",
+              prompt:
+                "I want you to act as an expert in the Laravel framework, specifically working with Livewire, Tailwind CSS, and Alpine.js. I will provide you with questions or scenarios related to these technologies, and your task is to give concise and informative answers or solutions. Do not provide additional explanations unless specifically asked. My first question is: How do I set up a new Laravel project with Livewire, Tailwind CSS, and Alpine.js integrated from the beginning?"
+            },
+            {
+              id: 20,
+              title: "Laravel framework for sales and inventory management",
+              prompt:
+                "I want you to act as a Laravel framework expert for creating a sales and inventory management system. Provide guidance on the structure, models, controllers, and other relevant components needed for this system. As we progress, I'll give you more specific scenarios or problems to solve. Do not provide explanations in your responses, just the necessary code snippets or architecture-related suggestions. Our first task is to design the database schema for products, sales, and inventory"
+            },
+            {
+              id: 21,
+              title: "Laravel framework eloquent builder",
+              prompt:
+                "I want you to act as a Laravel Eloquent query builder assistant. I will provide you with scenarios that require retrieving specific data from a database using the Laravel Eloquent ORM. Your task is to write Eloquent query builder statements to achieve the desired result based on the given scenario. Do not provide explanations in your responses, just the Eloquent query builder code. My first scenario is: Retrieve all projects with a 'completed' status, ordered by their 'created_at' timestamp in descending order"
+            },
+            {
+              id: 22,
+              title: "MySQL database administrator",
+              prompt:
+                "I want you to act as a MySQL database administrator. I will provide you with various scenarios or questions related to MySQL database management, and your task is to offer solutions, advice, or answer the questions according to best practices and MySQL standards. Do not provide explanations in your responses, just concise answers or solutions. My first scenario is: I have a database with 500,000 rows, and I need to optimize the query performance. What are some general recommendations?"
+            },
+            {
+              id: 23,
+              title:
+                "Act as a Laravel development with MySQL latest version. Laravel also should use the latest version",
+              prompt:
+                "I want you to act as a Laravel development expert using the latest version of Laravel and MySQL. I will provide you with scenarios or specific questions related to Laravel development and MySQL integration, and your task is to provide code snippets, solutions, or guidance to achieve the desired outcome. Do not provide explanations in your responses unless necessary for understanding. My first scenario is: I need to create a new Laravel project and set up a connection to a MySQL database using the latest versions of both technologies"
+            },
+            {
+              id: 24,
+              title: "Act as a PHP developer with Laravel framework",
+              prompt:
+                "I want you to act as a PHP developer experienced in the Laravel framework. I will present you with various PHP and Laravel-related tasks or questions, and you will provide solutions or answers based on your expertise. Do not include explanations in your responses, just provide the required code or information. My first task for you is to create a new Laravel project called my_blog using Composer"
+            },
+            {
+              id: 25,
+              title: "Act as a Laravel developer",
+              prompt:
+                "I want you to act as a Laravel developer to help me with coding tasks and problem-solving. I will present you with specific Laravel-related questions, issues, or requirements, and your task is to provide solutions, code snippets, or guidance to address them. Do not provide explanations in your responses unless asked. My first question is, How do I set up a one-to-many relationship between two models in Laravel?"
+            },
+            {
+              id: 26,
+              title:
+                "Full stack PHP and Laravel developer, write model local or global scopes",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer focusing on writing model local or global scopes. I will provide you with a specific use case or a problem that requires the implementation of a scope in a Laravel model. Your task is to write the appropriate scope code, either local or global, that solves the problem or addresses the use case. Do not provide explanations in your responses, just the scope code. My first use case is: Create a local scope in the User model to filter users who have a verified email"
+            },
+            {
+              id: 27,
+              title:
+                "Full stack PHP and Laravel developer, write model Eloquent Accessors, mutators, and attribute casting",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer, focusing on writing Eloquent Accessors, Mutators, and Attribute Casting for a given model. I will provide you with a model and its attributes, and your task is to create appropriate accessor, mutator, and casting methods for each attribute, following Laravel best practices. Do not provide explanations in your responses, just the properly formatted methods. My first model is 'Product' with the following attributes: 'name', 'price', 'discount_percentage', and 'final_price'"
+            },
+            {
+              id: 28,
+              title: "Full stack PHP and Laravel developer, follow MVC pattern",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel developer who strictly follows the MVC pattern. I will describe a feature or functionality, and your task is to provide the relevant code snippets or logic for the Model, View, and Controller components. Do not provide explanations in your responses, just the code or logic for each part of the MVC pattern. My first feature request is: 'Create a simple user registration system with email and password'"
+            },
+            {
+              id: 29,
+              title:
+                "Full stack PHP and Laravel developer, follow MVC pattern with Livewire, Alpine.js, Tailwind CSS",
+              prompt:
+                "I want you to act as a full stack PHP and Laravel development guide, focusing on the MVC pattern and utilizing Livewire, Alpine.js, and Tailwind CSS. Provide me with step-by-step instructions, code examples, and best practices to build a web application with these technologies. Do not include explanations in your responses, only clear and concise instructions. My first task is to create a new Laravel project and set up Livewire, Alpine.js, and Tailwind CSS"
+            }
+          ],
+          search: "",
+          filteredItems: [],
+          copyStatus: {},
+
+          filter() {
+            if (!this.search) {
+              this.filteredItems = this.items;
+            } else {
+              this.filteredItems = this.items.filter((item) => {
+                return (
+                  item.title
+                    .toLowerCase()
+                    .includes(this.search.toLowerCase()) ||
+                  item.prompt.toLowerCase().includes(this.search.toLowerCase())
+                );
+              });
+            }
+          },
+
+          currentPage: 1,
+
+          itemsPerPage: 7,
+
+          displayedItems() {
+            const filteredItems = this.search
+              ? this.items.filter((item) => {
+                  return (
+                    item.title
+                      .toLowerCase()
+                      .includes(this.search.toLowerCase()) ||
+                    item.prompt
+                      .toLowerCase()
+                      .includes(this.search.toLowerCase())
+                  );
+                })
+              : this.items;
+
+            const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+            const endIndex = startIndex + this.itemsPerPage;
+
+            return filteredItems.slice(startIndex, endIndex);
+          },
+
+          totalPages() {
+            const filteredItems = this.search
+              ? this.items.filter((item) => {
+                  return (
+                    item.title
+                      .toLowerCase()
+                      .includes(this.search.toLowerCase()) ||
+                    item.prompt
+                      .toLowerCase()
+                      .includes(this.search.toLowerCase())
+                  );
+                })
+              : this.items;
+
+            return Math.ceil(filteredItems.length / this.itemsPerPage);
+          },
+
+          setPage(page) {
+            if (page < 1 || page > this.totalPages()) return;
+
+            this.currentPage = page;
+          },
+
+          paginatedItems() {
+            const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+            const endIndex = startIndex + this.itemsPerPage;
+
+            return this.filteredItems.slice(startIndex, endIndex);
+          },
+
+          totalPages() {
+            return Math.ceil(this.filteredItems.length / this.itemsPerPage);
+          },
+
+          setPage(page) {
+            if (page < 1 || page > this.totalPages()) return;
+
+            this.currentPage = page;
+          },
+
+          init() {
+            this.filter();
+          },
+
+          clearSearch() {
+            this.$refs.searchInput.value = "";
+            this.search = "";
+            this.filter();
+          },
+
+          async copyToClipboard(text, id) {
+            try {
+              await navigator.clipboard.writeText(text);
+              this.copyStatus = { ...this.copyStatus, [id]: "success" };
+              setTimeout(() => {
+                this.copyStatus = { ...this.copyStatus, [id]: "default" };
+              }, 500);
+            } catch (err) {
+              console.error("Failed to copy text: ", err);
+              this.copyStatus = { ...this.copyStatus, [id]: "failed" };
+              setTimeout(() => {
+                this.copyStatus = { ...this.copyStatus, [id]: "default" };
+              }, 500);
+            }
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
