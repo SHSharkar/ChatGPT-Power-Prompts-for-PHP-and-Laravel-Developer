@@ -123,13 +123,13 @@
               </button>
             </div>
 
-            <ul class="mt-4 space-y-4">
+            <ul class="mt-4 space-y-5">
               <template x-for="item in displayedItems" :key="item.id">
                 <li class="flex items-center justify-between">
                   <div class="pr-3">
                     <h3
                       x-text="item.title"
-                      class="text-sm font-semibold text-gray-900"
+                      class="mb-2 text-sm font-semibold text-gray-900"
                     ></h3>
                     <p x-text="item.prompt" class="text-sm text-gray-800"></p>
                   </div>
@@ -412,7 +412,7 @@
 
           currentPage: 1,
 
-          itemsPerPage: 7,
+          itemsPerPage: 6,
 
           displayedItems() {
             const filteredItems = this.search
