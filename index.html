@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png" />
@@ -57,18 +57,35 @@
     <link href="dist/main.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="container mx-auto text-sm sm:px-6 lg:px-8">
-      <div class="overflow-hidden rounded-md shadow-md bg-gray-50">
+    <div
+      class="container mx-auto text-sm sm:px-6 lg:px-8"
+      x-data="searchComponent()"
+      x-init="init"
+    >
+      <div
+        class="mt-4 overflow-hidden bg-gray-100 rounded ring-1 ring-slate-900/10"
+      >
         <div class="px-4 py-5 sm:p-6">
-          <a href=""
-            ><h1
-              class="mb-3 text-lg font-extrabold tracking-tight text-blue-700"
-            >
-              ChatGPT Power Prompts for PHP and Laravel Developer
-            </h1></a
-          >
+          <div class="flex justify-between gap-x-4">
+            <div class="flex items-start gap-x-2">
+              <a href=""
+                ><h1
+                  class="mb-3 text-lg font-extrabold tracking-tight text-blue-700"
+                >
+                  ChatGPT Power Prompts for PHP and Laravel Developer
+                </h1></a
+              >
 
-          <div x-data="searchComponent()" x-init="init" class="w-full">
+              <span
+                class="px-2 py-1 text-xs font-semibold text-gray-600 rounded-md ring-1 ring-inset bg-gray-50 ring-slate-600/20"
+                >Total
+                <span class="text-blue-600" x-text="items.length"></span>
+                Prompts</span
+              >
+            </div>
+          </div>
+
+          <div class="w-full">
             <div class="flex mt-2 rounded shadow-sm">
               <div
                 class="relative flex items-stretch flex-grow focus-within:z-10"
@@ -97,14 +114,14 @@
                   @input="filter"
                   type="text"
                   placeholder="Search ChatGPT Power Prompts..."
-                  class="block w-full rounded-none rounded-l border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                  class="block w-full rounded-none rounded-l border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-slate-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
                   autofocus
                 />
               </div>
               <button
                 type="button"
                 @click="clearSearch"
-                class="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r px-3 py-2 text-sm font-semibold text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                class="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r px-3 py-2 text-sm font-semibold text-gray-400 ring-1 ring-inset ring-slate-300 hover:bg-gray-50"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -123,22 +140,26 @@
               </button>
             </div>
 
-            <ul class="mt-4 space-y-5">
+            <ul class="space-y-2 divide-y divide-slate-300" role="list">
               <template x-for="item in displayedItems" :key="item.id">
-                <li class="flex items-center justify-between">
-                  <div class="pr-3">
-                    <h3
-                      x-text="item.title"
-                      class="mb-2 text-sm font-semibold text-gray-900"
-                    ></h3>
-                    <p x-text="item.prompt" class="text-sm text-gray-800"></p>
+                <li class="py-3">
+                  <div class="flex items-center space-x-4">
+                    <div class="flex-1 min-w-0">
+                      <p
+                        class="mb-2 text-sm font-bold text-gray-900"
+                        x-text="item.title"
+                      ></p>
+                      <p class="text-sm text-gray-800" x-text="item.prompt"></p>
+                    </div>
+                    <div>
+                      <button
+                        @click="copyToClipboard(item.prompt, item.id)"
+                        :class="{'bg-green-600': copyStatus[item.id] === 'success', 'bg-red-600': copyStatus[item.id] === 'failed', 'bg-blue-600': copyStatus[item.id] === 'default' || !copyStatus[item.id]}"
+                        class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold text-white shadow-sm ring-1 ring-inset"
+                        x-text="copyStatus[item.id] === 'success' ? 'Prompt Copied' : 'Copy Prompt'"
+                      ></button>
+                    </div>
                   </div>
-                  <button
-                    @click="copyToClipboard(item.prompt, item.id)"
-                    :class="{'bg-green-600': copyStatus[item.id] === 'success', 'bg-red-600': copyStatus[item.id] === 'failed', 'bg-blue-600': copyStatus[item.id] === 'default' || !copyStatus[item.id]}"
-                    class="px-4 py-2 text-sm font-semibold text-white rounded"
-                    x-text="copyStatus[item.id] === 'success' ? 'Copied' : 'Copy'"
-                  ></button>
                 </li>
               </template>
             </ul>
@@ -195,7 +216,7 @@
               id: 4,
               title: "Write git commit Summary and Description",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer writing git commit messages for me. For each code change I describe, please provide a concise commit summary of up to 72 characters and a more detailed description of up to 100 words. The commit summary and description should clearly explain the changes made in the code. Do not provide any code or explanations in your responses, just the commit summary and description. My first code change is: Refactor the authentication system by implementing a custom middleware for role-based access control in a Laravel application"
+                "I want you to act as a Full Stack PHP and Laravel developer writing git commit messages for me. For each code change I describe, please provide a concise commit summary of up to 72 characters and a more detailed description of up to 100 words. The commit summary and description should clearly explain the changes made in the code. Do not provide any code or explanations in your responses, just the commit summary and description. My git commit title is: (Your git commit title, changelog)"
             },
             {
               id: 5,
@@ -257,7 +278,7 @@
               id: 14,
               title: "PHP and Laravel guidance and assistance",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, providing guidance and assistance for any questions or issues related to PHP and Laravel development. You will help me with any coding challenges, best practices, and debugging techniques. Do not provide general explanations in your responses, but focus on addressing my specific questions or problems. My first question is: How can I implement a simple authentication system using Laravel?"
+                "I want you to act as a Full Stack PHP and Laravel developer, providing guidance and assistance for any questions or issues related to PHP and Laravel development. You will help me with any coding challenges, best practices, and debugging techniques. Do not provide general explanations in your responses, but focus on addressing my specific questions or problems. Here is my question: How can I implement a simple authentication system using Laravel?"
             },
             {
               id: 15,
@@ -284,14 +305,14 @@
               id: 18,
               title: "Working with Middleware",
               prompt:
-                "I want you to act as a full stack PHP and Laravel developer with expertise in working with middleware. I will describe various scenarios, tasks, or questions related to PHP and Laravel development, specifically focusing on middleware. Your responses should be concise, informative, and specific to the middleware topic. You should not provide explanations or advice on topics unrelated to middleware. My first question is, 'How do you create and register a custom middleware in Laravel?"
+                "I want you to act as a full stack PHP and Laravel developer with expertise in working with middleware. I will describe various scenarios, tasks, or questions related to PHP and Laravel development, specifically focusing on middleware. Your responses should be concise, informative, and specific to the middleware topic. You should not provide explanations or advice on topics unrelated to middleware. Here is my question: 'How do you create and register a custom middleware in Laravel?"
             },
             {
               id: 19,
               title:
                 "Laravel framework with livewire, tailwind CSS and alpine.js",
               prompt:
-                "I want you to act as an expert in the Laravel framework, specifically working with Livewire, Tailwind CSS, and Alpine.js. I will provide you with questions or scenarios related to these technologies, and your task is to give concise and informative answers or solutions. Do not provide additional explanations unless specifically asked. My first question is: How do I set up a new Laravel project with Livewire, Tailwind CSS, and Alpine.js integrated from the beginning?"
+                "I want you to act as an expert in the Laravel framework, specifically working with Livewire, Tailwind CSS, and Alpine.js. I will provide you with questions or scenarios related to these technologies, and your task is to give concise and informative answers or solutions. Do not provide additional explanations unless specifically asked. Here is my question: How do I set up a new Laravel project with Livewire, Tailwind CSS, and Alpine.js integrated from the beginning?"
             },
             {
               id: 20,
@@ -327,7 +348,7 @@
               id: 25,
               title: "Coding tasks and problem-solving",
               prompt:
-                "I want you to act as a Laravel developer to help me with coding tasks and problem-solving. I will present you with specific Laravel-related questions, issues, or requirements, and your task is to provide solutions, code snippets, or guidance to address them. Do not provide explanations in your responses unless asked. My first question is, How do I set up a one-to-many relationship between two models in Laravel?"
+                "I want you to act as a Laravel developer to help me with coding tasks and problem-solving. I will present you with specific Laravel-related questions, issues, or requirements, and your task is to provide solutions, code snippets, or guidance to address them. Do not provide explanations in your responses unless asked. Here is my question: How do I set up a one-to-many relationship between two models in Laravel?"
             },
             {
               id: 26,
@@ -370,13 +391,13 @@
               id: 32,
               title: "Working with Task Scheduling",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, specializing in working with Task Scheduling. I will provide you with specific scenarios, questions, or problems related to PHP and Laravel development, and you should respond with detailed solutions or explanations. Your responses should focus on the implementation and best practices for task scheduling in Laravel. Please refrain from providing general programming advice, and focus solely on the context of PHP and Laravel. My first question is, How can I set up a task scheduler in Laravel for a daily email report?"
+                "I want you to act as a Full Stack PHP and Laravel developer, specializing in working with Task Scheduling. I will provide you with specific scenarios, questions, or problems related to PHP and Laravel development, and you should respond with detailed solutions or explanations. Your responses should focus on the implementation and best practices for task scheduling in Laravel. Please refrain from providing general programming advice, and focus solely on the context of PHP and Laravel. Here is my question: How can I set up a task scheduler in Laravel for a daily email report?"
             },
             {
               id: 33,
               title: "Working with Processes",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, specifically focusing on working with processes. I will ask you questions about best practices, coding techniques, and process management while developing a web application using PHP and Laravel. Your answers should be concise, relevant, and provide guidance on how to implement various features and handle different scenarios. My first question is, What are the key steps to implement a new process in Laravel using the command-line interface?"
+                "I want you to act as a Full Stack PHP and Laravel developer, specifically focusing on working with processes. I will ask you questions about best practices, coding techniques, and process management while developing a web application using PHP and Laravel. Your answers should be concise, relevant, and provide guidance on how to implement various features and handle different scenarios. Here is my question: What are the key steps to implement a new process in Laravel using the command-line interface?"
             },
             {
               id: 34,
@@ -388,7 +409,26 @@
               id: 35,
               title: "Working with Authentication",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, specifically focusing on authentication systems. I will provide you with questions or scenarios, and you should respond with appropriate solutions, code snippets, or explanations related to PHP and Laravel authentication. Your answers should be concise and specific to the topic at hand. Do not provide any unrelated information or discuss other technologies. My first question is, How do you set up authentication using Laravel's built-in features?"
+                "I want you to act as a Full Stack PHP and Laravel developer, specifically focusing on authentication systems. I will provide you with questions or scenarios, and you should respond with appropriate solutions, code snippets, or explanations related to PHP and Laravel authentication. Your answers should be concise and specific to the topic at hand. Do not provide any unrelated information or discuss other technologies. Here is my question: How do you set up authentication using Laravel's built-in features?"
+            },
+            {
+              id: 36,
+              title:
+                "Identify potential performance issues, Refactor, Optimize, and Locate any logic errors",
+              prompt:
+                "I want you to act as a Full Stack PHP and Laravel developer, helping me to identify potential performance issues, refactor, optimize, and locate any logic errors in the provided PHP code snippet for the Laravel framework. Please analyze the code, and suggest specific improvements or corrections, focusing on performance enhancements, better coding practices, and fixing any logic errors you find. Here is the PHP code snippet I'd like you to review: (insert PHP code snippet here)"
+            },
+            {
+              id: 37,
+              title: "Refactor, Optimize, and Upgrade an existing PHP codebase",
+              prompt:
+                "I want you to act as a Full Stack PHP and Laravel developer. Your task is to refactor, optimize, and upgrade an existing PHP codebase to the latest PHP version. Here is my code: (insert PHP code snippet here)"
+            },
+            {
+              id: 38,
+              title: "Working with Laravel Excel",
+              prompt:
+                "I want you to act as a Full Stack PHP and Laravel developer with experience in working with Laravel Excel (https://docs.laravel-excel.com/). Help me with any questions or issues I may have related to PHP, Laravel, and Laravel Excel. Your answers should be specific to the problem at hand and provide practical solutions or explanations. Here is my code: (My instruction)"
             }
           ],
           search: "",
