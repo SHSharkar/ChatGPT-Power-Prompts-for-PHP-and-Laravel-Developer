@@ -195,270 +195,264 @@
           items: [
             {
               id: 1,
-              title: "Act as Laravel code formatter",
+              title: "Format Laravel Code",
               prompt:
-                "I want you to act as Laravel code formatting assistant. I will provide you with code snippets, and your task is to format and optimize the code according to Laravel best practices and coding standards. Do not provide explanations in your responses, just the properly formatted code. My first code snippet is:"
+                "In the context of being a Laravel expert, please format and optimize the following code snippet according to Laravel best practices and coding standards. Do not include explanations in your response, just the properly formatted code. The code snippet is:",
             },
             {
               id: 2,
-              title:
-                "Write Model Relationship such as, Has Many, Many to Many, Belongs To, Belongs To Many etc",
+              title: "Create Laravel Model Relationships",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer focusing on model relationships. I will provide you with scenarios, and you will create the appropriate Laravel Eloquent relationships such as, Has Many, Many to Many, Belongs To, and Belongs To Many. Do not provide explanations in your responses, just the properly written relationship methods within the respective models. My first scenario is: A blog has multiple authors, and each author can write multiple posts"
+                "In the context of being a PHP and Laravel developer, create the appropriate Laravel Eloquent relationships for the following scenario: A blog has multiple authors, and each author can write multiple posts. Do not include explanations in your response, just the properly written relationship methods within the respective models.",
             },
             {
               id: 3,
-              title: "Write Helper Functions to Use Globally",
+              title: "Create Laravel Helper Functions",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, and help me create helper functions that can be used globally throughout the application. I will provide you with a specific functionality or problem, and your task is to write a clean and efficient helper function to address that need. Do not provide explanations in your responses, just the code for the helper function. My first functionality request is: Create a helper function to format a given phone number into a standardized format (e.g., +1-555-123-4567)"
+                "In the context of being a PHP and Laravel developer, write a helper function for the following functionality: Create a function to format a given phone number into a standardized format (e.g., +1-555-123-4567). Do not include explanations in your response, just the code for the helper function.",
             },
             {
               id: 4,
-              title: "Write git commit Summary and Description",
+              title: "Compose Git Commit Messages",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer writing git commit messages for me. For each code change I describe, please provide a concise commit summary of up to 72 characters and a more detailed description of up to 100 words. The commit summary and description should clearly explain the changes made in the code. Do not provide any code or explanations in your responses, just the commit summary and description. My git commit title is: (Your git commit title, changelog)"
+                "In the context of being a PHP and Laravel developer, provide a concise commit summary and a more detailed description for the following code change: (Your code change description). Do not include any code or explanations in your responses, just the commit summary and description.",
             },
             {
               id: 5,
-              title: "Work with JSON object Encode, Decode",
+              title: "Handle JSON Encoding and Decoding",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, specifically focusing on working with JSON objects encoding and decoding. I will provide you with scenarios or code snippets, and your task is to assist me with solutions, including code samples or explanations on how to encode or decode JSON objects in the given context. My first scenario is: I have an associative array in PHP that I want to convert to a JSON object and send it as a response from my Laravel controller"
+                "In the context of being a PHP and Laravel developer, provide a solution for the following scenario: I have an associative array in PHP that I want to convert to a JSON object and send it as a response from my Laravel controller. Do not include explanations in your response, just the code snippet.",
             },
             {
               id: 6,
-              title: "Work with Queue",
+              title: "Implement Laravel Queues",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, specifically focusing on working with queues. I will provide you with tasks or scenarios related to implementing and managing queues in Laravel projects. Your response should include relevant code snippets and brief explanations to help me understand the implementation. My first task is: How do I set up a basic queue worker with Laravel, and what is the process to dispatch a job to the queue?"
+                "In the context of being a PHP and Laravel developer, explain how to set up a basic queue worker with Laravel and the process to dispatch a job to the queue. Do not provide explanations in your response unless specifically requested.",
             },
             {
               id: 7,
               title: "Work with Laravel Nova",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, specifically working with Laravel Nova. I will provide you with tasks or issues related to PHP, Laravel, and Laravel Nova, and you will respond with solutions, code snippets, or guidance on how to resolve them. Do not provide explanations in your responses, just the information necessary to complete the task or resolve the issue. My first task is to create a new Laravel Nova resource for a User model with basic CRUD functionality"
+                "In the context of being a PHP and Laravel developer, create a new Laravel Nova resource for a User model with basic CRUD functionality. Do not include explanations in your response, just the necessary code or instructions.",
             },
             {
               id: 8,
-              title: "Work with Laravel Nova (v2)",
+              title: "Set up Laravel Nova Project",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer with expertise in Laravel Nova, working with the latest Laravel. I will provide you with scenarios or problems, and your task is to offer solutions, approaches, or code snippets to address those scenarios or problems effectively. Do not provide explanations in your responses unless specifically requested. My first scenario is: I need to create a new Laravel project with Laravel Nova installed and set up resources"
+                "In the context of being a PHP and Laravel developer with expertise in Laravel Nova, create a new Laravel project with Laravel Nova installed and set up resources. Do not provide explanations in your response unless specifically requested.",
             },
             {
               id: 9,
-              title:
-                "Work with full text search with Laravel Scout, Laravel and MySQL",
+              title: "Implement Full-Text Search with Laravel Scout and MySQL",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, specifically focusing on implementing full text search using Laravel Scout in a project with the latest Laravel and MySQL versions. I will provide you with scenarios or code snippets, and you should respond with appropriate solutions or guidance to implement the features or resolve any issues. Please focus only on the technical aspects and do not provide explanations in your responses. My first scenario is: I want to set up Laravel Scout in a fresh Laravel project and configure it to use the latest MySQL version for full text search"
+                "In the context of being a PHP and Laravel developer, set up Laravel Scout in a fresh Laravel project and configure it to use the latest MySQL version for full-text search. Do not provide explanations in your response, just the required code and brief instructions.",
             },
             {
               id: 10,
               title:
-                "Work with full text search using Meilisearch, Laravel and MySQL",
+                "Implement Full-Text Search with Meilisearch, Laravel, and MySQL",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, assisting me in implementing full-text search functionality using Meilisearch in a project with the latest Laravel and MySQL version. I will describe the requirements, and your task is to provide me with code snippets, recommendations, and guidance to achieve the desired functionality. Do not provide explanations in your responses, just the required code and brief instructions. My first requirement is to set up Meilisearch and integrate it into a Laravel project"
+                "In the context of being a PHP and Laravel developer, set up Meilisearch and integrate it into a Laravel project. Do not provide explanations in your response, just the required code and brief instructions.",
             },
             {
               id: 11,
-              title: "Work with updating codes with Cache",
+              title: "Update Laravel Code with Cache",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, focusing on updating codes with cache implementation for optimal performance. I will provide you with code snippets, and your task is to update the code to use the latest Laravel version while implementing caching mechanisms. Do not provide explanations in your responses, just the updated and optimized code. My first code snippet is:"
+                "In the context of being a PHP and Laravel developer, update the following code snippet to use the latest Laravel version while implementing caching mechanisms. Do not include explanations in your response, just the updated and optimized code. The code snippet is:",
             },
             {
               id: 12,
-              title: "Collect data from external API",
+              title: "Collect Data from External API",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer who will help me collect data from an external API. I will provide you with the API endpoint and the desired data parameters. Your task is to write a Laravel code snippet to make an API request, process the data, and return the desired results in an appropriate format. Do not provide explanations in your responses, just the code snippet. My first API endpoint is 'https://api.example.com/data' and I want to retrieve data for the parameter 'user_id=123'"
+                "In the context of being a PHP and Laravel developer, write a Laravel code snippet to make an API request, process the data, and return the desired results in an appropriate format for the following endpoint: 'https://api.example.com/data' and parameter 'user_id=123'. Do not include explanations in your response, just the code snippet.",
             },
             {
               id: 13,
-              title: "Work with web scrape",
+              title: "Perform Web Scraping",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer specialized in web scraping. I will provide you with website URLs or specific elements, and you will guide me through the process of scraping the data using PHP and Laravel tools, libraries, or techniques. Please focus on providing practical advice and code snippets without any explanations. My first website URL for scraping is 'https://example.com/listings'"
+                "In the context of being a PHP and Laravel developer specialized in web scraping, guide me through the process of scraping data from the following website URL using PHP and Laravel tools, libraries, or techniques: 'https://example.com/listings'. Do not provide explanations in your response, just the code snippet.",
             },
             {
               id: 14,
-              title: "PHP and Laravel guidance and assistance",
+              title: "PHP and Laravel Guidance",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, providing guidance and assistance for any questions or issues related to PHP and Laravel development. You will help me with any coding challenges, best practices, and debugging techniques. Do not provide general explanations in your responses, but focus on addressing my specific questions or problems. Here is my question: How can I implement a simple authentication system using Laravel?"
+                "In the context of being a PHP and Laravel developer, answer the following question: How can I implement a simple authentication system using Laravel? Focus on addressing the specific question or problem and do not provide general explanations in your response.",
             },
             {
               id: 15,
-              title:
-                "Find the problems below Laravel code, check if there is any logical error, suggest or replace any error you found",
+              title: "Analyze and Troubleshoot Laravel Code",
               prompt:
-                "I want you to act as a Laravel code analyzer and troubleshooter. I will provide you with Laravel code snippets, and your task is to identify any issues, logical errors, or areas for improvement. Please suggest solutions or replacements for any errors you find. Do not write explanations in your responses, just the corrected code or suggestions. My first code snippet is:"
+                "In the context of being a Laravel expert, identify any issues, logical errors, or areas for improvement in the following code snippet. Suggest solutions or replacements for any errors you find. Do not include explanations in your response, just the corrected code or suggestions. The code snippet is:",
             },
             {
               id: 16,
-              title:
-                "Code format, upgrade latest syntax, make codes more shortest, eliminate non-required codes, upgrade PHP syntax to Laravel if available for Laravel framework",
+              title: "Optimize and Convert PHP Code to Laravel",
               prompt:
-                "I want you to act as a code optimization and Laravel conversion assistant. I will provide you with PHP code snippets, and your task is to format and optimize the code by following the latest syntax, making the code shorter, eliminating unnecessary parts, and upgrading the PHP syntax to Laravel syntax when applicable. Do not provide explanations in your responses, just the properly optimized and updated code. My first code snippet is:"
+                "In the context of being a code optimization and Laravel conversion assistant, optimize and convert the following PHP code snippet to Laravel syntax, if applicable. Do not provide explanations, just the optimized and updated code. The code snippet is:",
             },
             {
               id: 17,
-              title:
-                "Code format with php-cs-fixer, code format, upgrade latest syntax, make codes more shortest, eliminate non required codes for Laravel framework",
+              title: "Optimize Laravel Code Using php-cs-fixer",
               prompt:
-                "I want you to act as a Laravel code optimization and formatting expert using php-cs-fixer. I will provide you with Laravel code snippets, and your task is to format the code, upgrade it to the latest syntax, shorten the code where possible, and remove any unnecessary code. Do not provide explanations in your responses, just the optimized and properly formatted code. My first code snippet is:"
+                "In the context of being a Laravel code optimization and formatting expert using php-cs-fixer, optimize and format the following Laravel code snippet. Do not provide explanations, just the optimized and formatted code. The code snippet is:",
             },
             {
               id: 18,
-              title: "Working with Middleware",
+              title: "Working with Laravel Middleware",
               prompt:
-                "I want you to act as a full stack PHP and Laravel developer with expertise in working with middleware. I will describe various scenarios, tasks, or questions related to PHP and Laravel development, specifically focusing on middleware. Your responses should be concise, informative, and specific to the middleware topic. You should not provide explanations or advice on topics unrelated to middleware. Here is my question: 'How do you create and register a custom middleware in Laravel?"
+                "In the context of being a PHP and Laravel developer with expertise in middleware, answer the following question: 'How do you create and register a custom middleware in Laravel?'",
             },
             {
               id: 19,
-              title:
-                "Laravel framework with livewire, tailwind CSS and alpine.js",
+              title: "Laravel with Livewire, Tailwind CSS, and Alpine.js",
               prompt:
-                "I want you to act as an expert in the Laravel framework, specifically working with Livewire, Tailwind CSS, and Alpine.js. I will provide you with questions or scenarios related to these technologies, and your task is to give concise and informative answers or solutions. Do not provide additional explanations unless specifically asked. Here is my question: How do I set up a new Laravel project with Livewire, Tailwind CSS, and Alpine.js integrated from the beginning?"
+                "In the context of being an expert in Laravel with Livewire, Tailwind CSS, and Alpine.js, answer the following question: 'How do I set up a new Laravel project with Livewire, Tailwind CSS, and Alpine.js integrated from the beginning?'",
             },
             {
               id: 20,
-              title: "Working with HTTP Client",
+              title: "Working with Laravel HTTP Client",
               prompt:
-                "I want you to act as a full stack PHP and Laravel developer who specializes in working with HTTP Client. I will provide you with tasks and questions related to PHP, Laravel, and HTTP Client implementations, and you will provide me with detailed responses, solutions, and best practices. Your responses should be clear, concise, and focused only on the given task or question. My first task is to implement an HTTP Client in Laravel to make a GET request to a third-party API."
+                "In the context of being a PHP and Laravel developer specializing in HTTP Client, implement an HTTP Client in Laravel to make a GET request to a third-party API.",
             },
             {
               id: 21,
-              title: "Laravel framework eloquent builder",
+              title: "Laravel Eloquent Query Builder",
               prompt:
-                "I want you to act as a Laravel Eloquent query builder assistant. I will provide you with scenarios that require retrieving specific data from a database using the Laravel Eloquent ORM. Your task is to write Eloquent query builder statements to achieve the desired result based on the given scenario. Do not provide explanations in your responses, just the Eloquent query builder code. My first scenario is: Retrieve all projects with a 'completed' status, ordered by their 'created_at' timestamp in descending order"
+                "In the context of being a Laravel Eloquent query builder assistant, write an Eloquent query builder statement for the following scenario: Retrieve all projects with a 'completed' status, ordered by their 'created_at' timestamp in descending order.",
             },
             {
               id: 22,
-              title: "MySQL database administrator",
+              title: "MySQL Database Administration",
               prompt:
-                "I want you to act as a MySQL database administrator. I will provide you with various scenarios or questions related to MySQL database management, and your task is to offer solutions, advice, or answer the questions according to best practices and MySQL standards. Do not provide explanations in your responses, just concise answers or solutions. My first scenario is: I have a database with 500,000 rows, and I need to optimize the query performance. What are some general recommendations?"
+                "In the context of being a MySQL database administrator, provide general recommendations for optimizing query performance in a database with 500,000 rows.",
             },
             {
               id: 23,
-              title: "Act as a Laravel developer with MySQL",
+              title: "Laravel Development with MySQL",
               prompt:
-                "I want you to act as a Laravel development expert using the latest version of Laravel and MySQL. I will provide you with scenarios or specific questions related to Laravel development and MySQL integration, and your task is to provide code snippets, solutions, or guidance to achieve the desired outcome. Do not provide explanations in your responses unless necessary for understanding. My first scenario is: I need to create a new Laravel project and set up a connection to a MySQL database using the latest versions of both technologies"
+                "In the context of being a Laravel development expert using the latest version of Laravel and MySQL, create a new Laravel project and set up a connection to a MySQL database using the latest versions of both technologies.",
             },
             {
               id: 24,
-              title: "Act as a PHP developer with Laravel framework",
+              title: "PHP Development with Laravel Framework",
               prompt:
-                "I want you to act as a PHP developer experienced in the Laravel framework. I will present you with various PHP and Laravel-related tasks or questions, and you will provide solutions or answers based on your expertise. Do not include explanations in your responses, just provide the required code or information. My first task for you is to create a new Laravel project called my_blog using Composer"
+                "In the context of being a PHP developer experienced in the Laravel framework, create a new Laravel project called my_blog using Composer.",
             },
             {
               id: 25,
-              title: "Coding tasks and problem-solving",
+              title: "Laravel Coding Tasks and Problem Solving",
               prompt:
-                "I want you to act as a Laravel developer to help me with coding tasks and problem-solving. I will present you with specific Laravel-related questions, issues, or requirements, and your task is to provide solutions, code snippets, or guidance to address them. Do not provide explanations in your responses unless asked. Here is my question: How do I set up a one-to-many relationship between two models in Laravel?"
+                "In the context of being a Laravel developer, answer the following question: 'How do I set up a one-to-many relationship between two models in Laravel?'",
             },
             {
               id: 26,
-              title: "Write model local or global scopes",
+              title: "Laravel Model Local and Global Scopes",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer focusing on writing model local or global scopes. I will provide you with a specific use case or a problem that requires the implementation of a scope in a Laravel model. Your task is to write the appropriate scope code, either local or global, that solves the problem or addresses the use case. Do not provide explanations in your responses, just the scope code. My first use case is: Create a local scope in the User model to filter users who have a verified email"
+                "In the context of being a PHP and Laravel developer, create a local scope in the User model to filter users who have a verified email.",
             },
             {
               id: 27,
-              title: "Eloquent Accessors, mutators, and attribute casting",
+              title:
+                "Create Eloquent Accessors, Mutators, and Attribute Casting",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, focusing on writing Eloquent Accessors, Mutators, and Attribute Casting for a given model. I will provide you with a model and its attributes, and your task is to create appropriate accessor, mutator, and casting methods for each attribute, following Laravel best practices. Do not provide explanations in your responses, just the properly formatted methods. My first model is 'Product' with the following attributes: 'name', 'price', 'discount_percentage', and 'final_price'"
+                "In the context of being a PHP and Laravel developer, write Eloquent Accessors, Mutators, and Attribute Casting for a 'Product' model with attributes: 'name', 'price', 'discount_percentage', and 'final_price'. Do not include explanations, just provide the required code.",
             },
             {
               id: 28,
-              title: "Follow MVC pattern",
+              title: "Implement MVC Pattern in Laravel",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer who strictly follows the MVC pattern. I will describe a feature or functionality, and your task is to provide the relevant code snippets or logic for the Model, View, and Controller components. Do not provide explanations in your responses, just the code or logic for each part of the MVC pattern. My first feature request is: 'Create a simple user registration system with email and password'"
+                "In the context of being a PHP and Laravel developer, provide code snippets for Model, View, and Controller components for a simple user registration system with email and password following the MVC pattern. Do not include explanations, just provide the required code.",
             },
             {
               id: 29,
               title:
-                "Follow MVC pattern with Livewire, Alpine.js, Tailwind CSS",
+                "Setup Laravel Project with Livewire, Alpine.js, and Tailwind CSS",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel development guide, focusing on the MVC pattern and utilizing Livewire, Alpine.js, and Tailwind CSS. Provide me with step-by-step instructions, code examples, and best practices to build a web application with these technologies. Do not include explanations in your responses, only clear and concise instructions. My first task is to create a new Laravel project and set up Livewire, Alpine.js, and Tailwind CSS"
+                "In the context of being a PHP and Laravel developer, create a new Laravel project and set up Livewire, Alpine.js, and Tailwind CSS. Do not include explanations, just provide the required steps and code.",
             },
             {
               id: 30,
-              title: "Enhance given PHP code",
+              title: "Improve PHP Code in Laravel",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, tasked with enhancing a given PHP code. Your objective is to improve the code within the Laravel framework by utilizing the latest PHP syntax, formatting the code structure, and updating variable names to be more meaningful and descriptive. Please review the provided PHP code and make the necessary changes to optimize it while adhering to best practices. Do not add any new functionality or remove existing features; focus solely on enhancing the code's readability, maintainability, and overall quality."
+                "In the context of being a PHP and Laravel developer, enhance the provided PHP code within the Laravel framework by updating syntax, formatting, and variable names. Do not add or remove functionality; focus on readability, maintainability, and quality. (insert PHP code snippet here)",
             },
             {
               id: 31,
-              title: "Working with Notifications",
+              title: "Create Notifications in Laravel",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, specializing in creating and managing notifications for web applications. I will describe the requirements and features I need, and you will provide code snippets, solutions, or explanations to help me implement these features. Your responses should be focused on PHP, Laravel, and relevant web technologies, and should not include unrelated information. My first requirement is to create a real-time notification system for a user dashboard."
+                "In the context of being a PHP and Laravel developer, provide code snippets, solutions, or explanations for creating a real-time notification system for a user dashboard. Focus on PHP, Laravel, and relevant web technologies.",
             },
             {
               id: 32,
-              title: "Working with Task Scheduling",
+              title: "Implement Task Scheduling in Laravel",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, specializing in working with Task Scheduling. I will provide you with specific scenarios, questions, or problems related to PHP and Laravel development, and you should respond with detailed solutions or explanations. Your responses should focus on the implementation and best practices for task scheduling in Laravel. Please refrain from providing general programming advice, and focus solely on the context of PHP and Laravel. Here is my question: How can I set up a task scheduler in Laravel for a daily email report?"
+                "In the context of being a PHP and Laravel developer, explain how to set up a task scheduler in Laravel for a daily email report. Focus on implementation and best practices for task scheduling in Laravel.",
             },
             {
               id: 33,
-              title: "Working with Processes",
+              title: "Manage Processes in Laravel",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, specifically focusing on working with processes. I will ask you questions about best practices, coding techniques, and process management while developing a web application using PHP and Laravel. Your answers should be concise, relevant, and provide guidance on how to implement various features and handle different scenarios. Here is my question: What are the key steps to implement a new process in Laravel using the command-line interface?"
+                "In the context of being a PHP and Laravel developer, provide guidance on implementing a new process in Laravel using the command-line interface. Answers should be concise and relevant.",
             },
             {
               id: 34,
-              title: "Working with File Storage",
+              title: "Handle File Storage in Laravel",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel Developer, specifically focusing on file storage. I will provide you with scenarios, and you will only provide code snippets, explanations, and solutions related to file storage and management using PHP and Laravel. Do not answer questions unrelated to file storage or other technologies. My first scenario is: How can I upload and store a file using Laravel's File Storage system?"
+                "In the context of being a PHP and Laravel developer, explain how to upload and store a file using Laravel's File Storage system. Focus on file storage and management using PHP and Laravel.",
             },
             {
               id: 35,
-              title: "Working with Authentication",
+              title: "Implement Authentication in Laravel",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, specifically focusing on authentication systems. I will provide you with questions or scenarios, and you should respond with appropriate solutions, code snippets, or explanations related to PHP and Laravel authentication. Your answers should be concise and specific to the topic at hand. Do not provide any unrelated information or discuss other technologies. Here is my question: How do you set up authentication using Laravel's built-in features?"
+                "In the context of being a PHP and Laravel developer, provide solutions, code snippets, or explanations related to setting up authentication using Laravel's built-in features. Focus on PHP and Laravel authentication.",
             },
             {
               id: 36,
-              title:
-                "Identify potential performance issues, Refactor, Optimize, and Locate any logic errors",
+              title: "Review and Optimize PHP Code",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer, helping me to identify potential performance issues, refactor, optimize, and locate any logic errors in the provided PHP code snippet for the Laravel framework. Please analyze the code, and suggest specific improvements or corrections, focusing on performance enhancements, better coding practices, and fixing any logic errors you find. Here is the PHP code snippet I'd like you to review: (insert PHP code snippet here)"
+                "In the context of being a PHP and Laravel developer, analyze the provided PHP code snippet for the Laravel framework, suggest improvements or corrections, and focus on performance enhancements, better coding practices, and fixing logic errors. (insert PHP code snippet here)",
             },
             {
               id: 37,
-              title: "Refactor, Optimize, and Upgrade an existing PHP codebase",
+              title: "Refactor and Optimize PHP Codebase",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer. Your task is to refactor, optimize, and upgrade an existing PHP codebase to the latest PHP version. Here is my code: (insert PHP code snippet here)"
+                "In the context of being a Full Stack PHP and Laravel developer, please help me refactor, optimize, and upgrade the following PHP codebase to the latest PHP version: (insert PHP code snippet here)",
             },
             {
               id: 38,
-              title: "Working with Laravel Excel",
+              title: "Assistance with Laravel Excel",
               prompt:
-                "I want you to act as a Full Stack PHP and Laravel developer with experience in working with Laravel Excel (https://docs.laravel-excel.com/). Help me with any questions or issues I may have related to PHP, Laravel, and Laravel Excel. Your answers should be specific to the problem at hand and provide practical solutions or explanations. Here is my code: (My instruction)"
+                "In the context of being a Full Stack PHP and Laravel developer experienced in Laravel Excel (https://docs.laravel-excel.com/), please assist me with any questions or issues related to PHP, Laravel, and Laravel Excel. Here is my code and specific question: (My instruction)",
             },
             {
               id: 39,
-              title: "Linux Administrator and Shell Script Expert",
+              title: "Linux Administration and Shell Scripting",
               prompt:
-                "Please act as a Linux Administrator and Shell Script Expert. Do not provide explanations in your responses, just the required code and brief instructions. Update the codes to the latest shell script syntax if applicable. Here is my question:"
+                "In the context of being a Linux Administrator and Shell Script Expert, please provide the required code and brief instructions for the following question:",
             },
             {
               id: 40,
-              title: "English expert - understands and responds to fluent English",
+              title: "English Language Expertise",
               prompt:
-                "Please act as a high-level English expert who understands and responds to fluent English. You should be able to update any message or sentence to make it more understandable and maintain a human tone in your responses. My message is:"
+                "In the context of being a high-level English language expert, please help me improve the following message while maintaining a human tone: (My message)",
             },
             {
               id: 41,
-              title: "Differences between codes during chat",
+              title: "Consistent PHP and Laravel Code",
               prompt:
-                "Please act as a Full Stack PHP and Laravel developer. Do not provide explanations in your responses, just the required code and brief instructions. Update the codes to the latest PHP and Laravel version syntax if applicable. Since several new updates are available after conversing with you, there are differences between codes. Please don't add any new methods or functions not given in your previous responses. You should follow your previous response and give exact answers from your last reply. Here is my question:"
+                "In the context of being a Full Stack PHP and Laravel developer, please provide the required code and brief instructions for the following question, ensuring consistency with previous responses:",
             },
             {
               id: 42,
-              title: "Tell ChatGPT to stop giving irrelevant information",
+              title: "Focused and Relevant Responses",
               prompt:
-                "I have observed that when our conversations become longer, your responses sometimes include irrelevant information. Please ensure that your replies stay focused on the topic at hand and do not introduce unrelated content. Let's continue our discussion, being mindful of this request, and please review your answers carefully before sending them."
+                "Please ensure that your replies stay focused on the topic at hand and do not introduce unrelated content. With this in mind, let's continue our discussion. Here is my question:",
             },
             {
               id: 43,
-              title: "Act as a Technical Documentation Writer",
+              title: "Technical Documentation Writing",
               prompt:
-                "Please act as a Full Stack PHP and Laravel developer, professional technical documentation writer, and high-level expert in the English language who understands and responds to fluent English. Improve the contexts where needed. You should be able to update any message or sentence to make it more understandable and maintain a human tone in your responses."
+                "In the context of being a Full Stack PHP and Laravel developer, a professional technical documentation writer, and a high-level English language expert, please help me improve the following technical documentation:",
             }
           ],
           search: "",
@@ -568,7 +562,7 @@
                 this.copyStatus = { ...this.copyStatus, [id]: "default" };
               }, 500);
             }
-          }
+          },
         };
       }
     </script>
